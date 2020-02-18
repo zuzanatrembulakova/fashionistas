@@ -1,0 +1,223 @@
+:root {
+    --coral: #FA7268;
+    --white: #ffffff;
+    --black: #0a0c19;
+    --transparent-black: #0a0c19A5;
+
+    --primary-font: "Arial", sans-serif;
+}
+
+html{
+   scroll-behavior: smooth;
+}
+body{
+    font-family: var(--primary-font);
+}
+.full-width {
+    background: var(--coral);
+    color: white;
+    width: 100%;
+}
+
+.logo{
+    position: absolute;
+    top: 5px;
+    left: 30px;
+    display: none;
+}
+#topBtn{
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    -webkit-box-shadow: 0px 4px 10px -2px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 4px 10px -2px rgba(0,0,0,0.75);
+    box-shadow: 0px 4px 10px -2px rgba(0,0,0,0.75);
+    z-index: 99;
+
+    border: none;
+    border-radius: 50%;
+    outline: none;
+    background-color: var(--white);
+    cursor: pointer;
+    font-size: 18px;
+    margin: 30px 0px;
+    display: none;
+}
+
+nav {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    z-index: 10;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+nav ul, footer ul {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+}
+nav li, footer li {
+    list-style: none;
+    margin: 0 2vw;
+    cursor: pointer;
+    letter-spacing: 1px;
+    font-weight: bold;
+    transition: .2s;
+}
+nav li:hover{
+    color: var(--coral);
+    /*border-bottom: 1px solid var(--coral);*/
+}
+
+nav a{
+   color: var(--black);
+    text-decoration: none;
+}
+.menu_selected{
+    color: var(--coral);
+}
+.home_icon{
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.bg {
+    /*-webkit-box-shadow: 0px 11px 11px 2px rgba(0, 0, 0, 0.81);
+    -moz-box-shadow: 0px 11px 11px 2px rgba(0, 0, 0, 0.81);
+    box-shadow: 0px 11px 11px 2px rgba(0, 0, 0, 0.81);*/
+
+    background-image: url(images/lauren-fleischmann-R2aodqJn3b8-unsplash.jpg);
+    height: 750px;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    display: flex;
+    align-items: center;
+}
+.welcome_text {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+.welcome_text_heading{
+    color: var(--white);
+    font-size: 65px;
+    border-bottom: 4px solid var(--white);
+}
+.welcome_text_subheading{
+    color: var(--white);
+    text-align: center;
+    font-size: 40px;
+    text-shadow: 2px 1px 1px grey;
+    font-weight: bolder;
+}
+.arrow_down_btn{
+    border: none;
+    background-color: transparent;
+    filter: invert(100%);
+    cursor: pointer;
+    outline: none;
+    display: block;
+    margin: 0 auto;
+}
+
+.home_page{
+    max-width: 100%;
+    justify-items: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    padding: 30px;
+}
+main a{
+    margin-left: auto;
+    margin-right: auto;
+}
+.season_box_spring, .season_box_summer, .season_box_autumn, .season_box_winter{
+    width: 340px;
+    height: 537px;
+    margin-top: 10vh;
+    display: flex;
+    align-items: center;
+}
+.season_box_spring{
+    background-image: url(images/spring.PNG);
+}
+.season_box_summer{
+    background-image: url(images/summer.PNG);
+}
+.season_box_autumn{
+    background-image: url(images/autumn.PNG);
+}
+.season_box_winter{
+    background-image: url(images/winter.PNG);
+}
+.season_text{
+    text-align: center;
+    color: var(--white);
+    font-weight: bold;
+    letter-spacing: 4px;
+    font-size: 20px;
+    padding: 20px 50px;
+    border: 2px solid var(--white);
+    background-color: var(--transparent-black);
+    cursor: pointer;
+    transition: 1s;
+}
+.season_text:hover{
+    background-color: var(--black);
+}
+
+footer{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+}
+
+@media only screen and (max-width: 850px) {
+
+    .welcome_text_heading{
+        font-size: 6vw;
+    }
+    .welcome_text_subheading{
+        font-size: 5vw;
+    }
+
+    nav ul, footer ul {
+        display: flex;
+        font-size: 14px;
+    }
+}
+
+/*main{
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    grid-gap: 1rem;
+    padding: 30px;
+}
+
+.layout{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: antiquewhite;
+    box-shadow: 1px 1px 1px grey;
+}
+
+h2{
+    font-family: arial;
+}*/
