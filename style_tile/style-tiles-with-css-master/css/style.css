@@ -1,0 +1,246 @@
+* {
+    box-sizing: border-box;
+}
+:root {
+    --bg-color: #FA7268;
+    --link-hover-color: blue;
+    --color-2: #ffffff;
+    --color-3: #0a0c19;
+
+    --primary-font: "Arial", sans-serif;
+    --secondary-font: "Arial", serif;
+
+    --white-space: 1rem;
+}
+
+html {
+    font-size: 100%;
+    font-family: var(--primary-font);
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+header,
+main, footer {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: calc(2 * var(--white-space));
+}
+
+.full-width {
+    background: var(--bg-color);
+    color: white;
+    width: 100%;
+}
+
+.header-wrapper h1 {
+    font-size: 3rem;
+    text-transform: uppercase;
+    letter-spacing: -2px;
+    padding-right: 0.75em;
+    font-weight: bold;
+    color: white;
+}
+.header-wrapper h2 {
+    font-size: 1.6em;
+    color: rgba(255, 255, 255, 0.95);
+    font-weight: bold;
+    margin: var(--white-space) 0;
+}
+.header-wrapper h3 {
+    font-size: 1.2rem;
+    font-style: italic;
+}
+.header-wrapper h4 {
+    font-size: 0.8rem;
+}
+
+main {
+    padding: calc(2 * var(--white-space));
+}
+
+section {
+    margin-bottom: calc(4 * var(--white-space));
+}
+.section-heading {
+    font-style: italic;
+    font-size: 1.3rem;
+    color: #777;
+    margin: 0.5rem 0;
+}
+
+ul {
+    display: flex;
+    justify-content: space-between;
+}
+.swatches li {
+    margin-right: 5vw;
+    height: 15vw;
+    width: 20%;
+    -webkit-box-shadow: 0px 4px 18px -7px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 4px 18px -7px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 4px 18px -7px rgba(0, 0, 0, 0.75);
+}
+ul li:last-child {
+    margin-right: 0;
+}
+
+.color-swatch-1 {
+    background-color: var(--bg-color);
+}
+.color-swatch-2 {
+    background-color: var(--color-2);
+}
+.color-swatch-3 {
+    background-color: var(--color-3);
+}
+
+.icons li {
+    height: 3vw;
+    width: 40%;
+    margin-right: 2vw;
+    margin-top: 1vw
+}
+.icon-swatch-1 {
+  background: url(../icons/shopping-cart-white-sm.png) top left no-repeat;
+}
+.icon-swatch-2 {
+  background: url(../icons/shopping-cart-black-sm.png) top left no-repeat;
+}
+.icon-swatch-3 {
+  background: url(../icons/arrow_sm%20%E2%80%93%20up.png) top left no-repeat;
+}
+
+.images ul {
+    flex-direction: column;
+    text-align: center;
+}
+.images li {
+    display: block;
+    /*margin-right: 5vw;*/
+    margin-bottom: 1rem;
+}
+
+button {
+    text-align: center;
+    width: 150px;
+    height: 50px;
+    text-decoration: none;
+    font: bold 1.25em/1 var(--primary-font);
+    letter-spacing: 3px;
+    color: white;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin: 0 1rem 1rem 0;
+    font-weight: bold;
+    border: none;
+}
+.primary-button {
+    background-color: #0a0c19A5;
+    transition: .5s;
+}
+.primary-button:hover{
+    background-color: var(--color-3);
+}
+.secondary-button {
+    background: var(--bg-color);
+}
+#topbtn{
+    width: 50px;
+    height: 50px;
+    -webkit-box-shadow: 0px 4px 10px -2px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 4px 10px -2px rgba(0,0,0,0.75);
+    box-shadow: 0px 4px 10px -2px rgba(0,0,0,0.75);
+    z-index: 99;
+
+    border: none;
+    border-radius: 50%;
+    outline: none;
+    background-color: --color-2;
+    cursor: pointer;
+    font-size: 18px;
+    margin: 30px 0px;
+}
+
+.typography-main {
+    color: var(--main-text-color);
+}
+.h1-sample {
+    font-size: 2.4rem;
+    font-weight: bold;
+}
+.h2-sample {
+    font-family: var(--secondary-font);
+    font-style: italic;
+    font-size: 1.25rem;
+}
+p.typography-sample {
+    font-family: var(--secondary-font);
+    line-height: 1.5;
+    max-width: 960px;
+}
+
+strong {
+    font-weight: bold;
+}
+
+em {
+    font-style: italic;
+}
+
+a {
+    font-family: var(--primary-font);
+    color: var(--bg-color);
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+a:hover{
+    border-bottom: 2px solid var(--bg-color);
+
+}
+
+footer {
+  font-style: italic;
+}
+
+p[class*="font-details-"] {
+    margin-top: 0.5rem;
+    margin-bottom: calc(2 * var(--white-space));
+    font-size: 0.75rem;
+    font-family: var(--secondary-font);
+    color: #6f6f6f;
+}
+
+.adjectives ul {
+    font-size: 2rem;
+    opacity: 0.5;
+}
+.adjectives ul {
+    flex-direction: column;
+}
+
+@media (min-width: 800px) {
+    main {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 4rem;
+    }
+
+    .swatches li {
+        margin-right: 3%;
+        height: 10vw;
+        width: 20%;
+    }
+
+    .textures li {
+        height: 15vw;
+    }
+}
+
+@media (min-width: 900px) {
+    .adjectives ul {
+        flex-direction: row;
+    }
+}

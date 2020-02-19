@@ -1,0 +1,123 @@
+body{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2rem;
+    margin-top: 50px;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: arial;
+}
+
+nav {
+    grid-column: 1 / 3;
+    grid-row: 1;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    -webkit-box-shadow: 0px 4px 10px -2px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 4px 10px -2px rgba(0,0,0,0.75);
+    box-shadow: 0px 4px 10px -2px rgba(0,0,0,0.75);
+    z-index: 10;
+    margin-bottom: 20px;
+}
+ul {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+}
+li {
+    list-style: none;
+    margin: 0 2vw;
+    cursor: pointer;
+    letter-spacing: 1px;
+
+}
+.menu_selected{
+    color: #FA7268;
+    font-weight: bold;
+    border-bottom: 4px solid #FA7268;
+}
+.menu_other:hover{
+    color: #FA7268;
+}
+
+.colors {
+    display: flex;
+    grid-column: 1;
+    grid-row: 2;
+}
+.color1, .color2, .color3 {
+    width: 150px;
+    height: 150px;
+    -webkit-box-shadow: 0px 4px 18px -7px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 4px 18px -7px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 4px 18px -7px rgba(0, 0, 0, 0.75);
+    margin: 10px;
+}
+.color1 {
+    background-color: #FA7268;
+}
+.color2 {
+    background-color: white;
+}
+.color3 {
+    background-color: black;
+}
+
+.typography{
+    grid-column: 2;
+    grid-row: 2 / 4;
+    justify-content: center;
+}
+.font_heading{
+    margin-top: -15px;
+    color: gray;
+}
+.paragraph{
+    text-align: justify;
+}
+
+.btns{
+    grid-column: 1;
+    grid-row: 3;
+    margin: 10px;
+    text-align: center;
+}
+.btn_readmore, .btn_buyme{
+    width: 150px;
+    height: 50px;
+    font-size: 15px;
+    cursor: pointer;
+    border: none;
+    letter-spacing: 3px;
+}
+.btn_readmore{
+    background-color: #0a0c19A5;
+    color: white;
+}
+.btn_readmore:hover{
+    background-color: #0a0c19;
+    transition: .5s;
+}
+.btn_buyme{
+
+}
+#topbtn{
+    width: 50px;
+    height: 50px;
+    box-shadow: 2px 2px 2px black;
+    z-index: 99;
+
+    border: none;
+    border-radius: 50%;
+    outline: none;
+    background-color: #ffffff;
+    color: var(--body-bg-color);
+    cursor: pointer;
+    font-size: 18px;
+    margin: 30px 0px;
+}
