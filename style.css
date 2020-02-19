@@ -244,3 +244,15 @@ footer{
 h2{
     font-family: arial;
 }
+
+.read_more_btn{
+    background-color: var(--transparent-black);
+    outline: none;
+    border: none;
+    color: white;
+    letter-spacing: 3px;
+    cursor: pointer;
+}
+.read_more_btn:hover{
+    background-color: var(--black);
+}
