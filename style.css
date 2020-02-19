@@ -225,10 +225,10 @@ footer{
 
 }
 
-/*main{
-    max-width: 100%;
+
+.season_main{
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     grid-gap: 1rem;
     padding: 30px;
 }
@@ -243,4 +243,4 @@ footer{
 
 h2{
     font-family: arial;
-}*/
+}
