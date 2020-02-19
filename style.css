@@ -118,12 +118,15 @@ nav a{
     font-size: 65px;
     border-bottom: 4px solid var(--white);
 }
-.welcome_text_subheading{
+.welcome_text_subheading, .about_text_subheading{
     color: var(--white);
     text-align: center;
     font-size: 40px;
     text-shadow: 2px 1px 1px grey;
     font-weight: bolder;
+}
+.about_text_subheading{
+    word-spacing: 10vw;
 }
 .arrow_down_btn{
     border: none;
