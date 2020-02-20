@@ -1,4 +1,3 @@
-
 window.onscroll = function () {
     stickybar()
     scrollFunction()
