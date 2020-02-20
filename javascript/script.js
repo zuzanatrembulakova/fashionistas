@@ -1,3 +1,57 @@
+var type = document.getElementById("script_args").getAttribute("arg1");
+
+const link = "https://spreadsheets.google.com/feeds/list/1DVAg6s7LifjTSAXIaS7VHV0RBByKoWiT9NW8ay4at9Y/od6/public/values?alt=json";
+window.addEventListener("DOMContentLoaded", getData);
+
+const divmain = document.querySelector("main");
+
+function getData() {
+    fetch(link)
+        .then(res => res.json())
+        .then(handleData)
+}
+
+function handleData(data) {
+    const myData = data.feed.entry;
+    console.log(myData);
+
+    //create categories
+    var categories = new Set();
+    myData.forEach(function (item){
+        if (item.gsx$season.$t == type) {
+            categories.add(item.gsx$category.$t);
+        }
+    })
+
+    categories.forEach(function(oneCategory){
+        const section = document.createElement("section");
+        section.id = oneCategory;
+        const h2 = document.createElement("h2");
+        h2.textContent = oneCategory;
+        section.appendChild(h2);
+
+        document.querySelector("main").appendChild(section);
+    })
+
+    myData.forEach(showData);
+}
+
+function showData(item) {
+
+    if (item.gsx$season.$t == type) {
+        const template = document.querySelector("template").content;
+
+        var aCopy = template.cloneNode(true);
+
+        aCopy.querySelector(".image").src = "images/" + item.gsx$image.$t + ".png";
+
+        /*aCopy.querySelector("h2").textContent = item.gsx$season.$t;*/
+
+        /*divmain.appendChild(aCopy);*/
+        document.querySelector(`#${item.gsx$category.$t}`).appendChild(aCopy);
+    }
+}
+
 window.onscroll = function () {
     stickybar()
     scrollFunction()
