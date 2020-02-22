@@ -1,4 +1,6 @@
-var type = document.getElementById("script_args").getAttribute("arg1");
+if (document.getElementById("script_args") != null) {
+    var type = document.getElementById("script_args").getAttribute("arg1");
+}
 
 const link = "https://spreadsheets.google.com/feeds/list/1DVAg6s7LifjTSAXIaS7VHV0RBByKoWiT9NW8ay4at9Y/od6/public/values?alt=json";
 window.addEventListener("DOMContentLoaded", getData);
@@ -17,13 +19,13 @@ function handleData(data) {
 
     //create categories
     var categories = new Set();
-    myData.forEach(function (item){
+    myData.forEach(function (item) {
         if (item.gsx$season.$t == type) {
             categories.add(item.gsx$category.$t);
         }
     })
 
-    categories.forEach(function(oneCategory){
+    categories.forEach(function (oneCategory) {
         const section = document.createElement("section");
         section.id = oneCategory;
         const h2 = document.createElement("h2");
@@ -42,6 +44,9 @@ function showData(item) {
         const template = document.querySelector("template").content;
 
         var aCopy = template.cloneNode(true);
+        aCopy.querySelector(".buy_me_btn").addEventListener("click", function () {
+            addToBasket(item.gsx$id.$t);
+        });
 
         aCopy.querySelector(".image").src = "images/" + item.gsx$image.$t + ".png";
 
@@ -52,21 +57,25 @@ function showData(item) {
     }
 }
 
+function addToBasket(id) {
+    var buydata = localStorage.getItem("fashion_basket");
+    var buyarr = [];
+    if (buydata != null) {
+        buyarr = JSON.parse(buydata);
+    }
+
+    buyarr.push(id);
+
+    localStorage.setItem("fashion_basket", JSON.stringify(buyarr));
+
+}
+
+//array.includes(item.id)
+
 window.onscroll = function () {
-    stickybar()
     scrollFunction()
 };
 
-var navbar = document.getElementById("navbar");
-var sticky = navbar.offsetTop;
-
-function stickybar() {
-    if (window.pageYOffset >= sticky) {
-        navbar.classList.add("sticky")
-    } else {
-        navbar.classList.remove("sticky");
-    }
-}
 
 /*---GO TO TOP BTN-------------------------------------*/
 
@@ -84,4 +93,3 @@ function topFunction() { // eslint-disable-line no-unused-vars
     document.body.scrollTop = 0; // For Safari
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
-
