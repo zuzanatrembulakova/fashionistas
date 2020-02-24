@@ -15,13 +15,13 @@
         <a href="index.html"><img src="icons/home-sm.png" class="home_icon"></a>
 
         <ul>
-            <a href="spring.html"><li class="menu_selected">SPRING</li></a>
+            <a href="spring.html"><li>SPRING</li></a>
             <a href="summer.html"><li>SUMMER</li></a>
             <a href="autumn.html"><li>AUTUMN</li></a>
             <a href="winter.html"><li>WINTER</li></a>
         </ul>
 
-        <a href="basket.html"><img src="icons/shopping-cart-white-sm.png" class="shoppingcart_icon"></a>
+        <img src="icons/shopping-cart-white-sm.png" class="shoppingcart_icon">
 
     </nav>
 
@@ -29,18 +29,16 @@
 
     <main class="season_main"></main>
 
-    <template>
-        <div class="layout">
-
-            <img src="images/spring.PNG" alt="clothes" class="image">
-
-            <button type="button" class="read_more_btn">READ MORE</button>
-            <button type="button" class="buy_me_btn">BUY</button>
-
-            <p class="sold_out_text">SOLD OUT</p>
-
+    <template class="basket_template">
+        <div class="basket_layout">
+            <img src="images/spring.PNG" alt="clothes" class="image" id="basket_img">
+            <!--<h2>title</h2>-->
+            <h2 class="basket_item_title">Title</h2>
+            <h2 class="basket_item_price">Price</h2>
         </div>
     </template>
+
+    <button type="button" class="empty_basket_btn">EMPTY BASKET</button>
 
    <div class="full-width">
         <footer>
@@ -51,6 +49,6 @@
         </footer>
     </div>
 
-    <script id="script_args" arg1="spring" src="javascript/script.js"></script>
+    <script src="javascript/basket.js"></script>
 
 </body></html>

@@ -50,11 +50,15 @@ function showData(item) {
 
         aCopy.querySelector(".image").src = "images/" + item.gsx$image.$t + ".png";
 
-        /*aCopy.querySelector("h2").textContent = item.gsx$season.$t;*/
-
-        /*divmain.appendChild(aCopy);*/
+        if(item.gsx$soldout.$t == "TRUE"){
+            aCopy.querySelector(".sold_out_text").style.display = "inline";
+            aCopy.querySelector(".image").classList.add("sold_out");
+        }else{
+            aCopy.querySelector(".image").classList.remove("sold_out");
+        }
         document.querySelector(`#${item.gsx$category.$t}`).appendChild(aCopy);
     }
+
 }
 
 function addToBasket(id) {
@@ -70,7 +74,6 @@ function addToBasket(id) {
 
 }
 
-//array.includes(item.id)
 
 window.onscroll = function () {
     scrollFunction()
