@@ -7,6 +7,18 @@ window.addEventListener("DOMContentLoaded", getData);
 
 const divmain = document.querySelector("main");
 
+if (document.querySelector(".burger_menu") != null) {
+    const bmenu = document.querySelector(".burger_menu");
+    bmenu.addEventListener("click", function () {
+        const navbar = document.getElementById("navbar");
+        if (navbar.style.display === "block") {
+            navbar.style.display = "none";
+        } else {
+            navbar.style.display = "block";
+        }
+    })
+};
+
 function getData() {
     fetch(link)
         .then(res => res.json())
@@ -50,10 +62,10 @@ function showData(item) {
 
         aCopy.querySelector(".image").src = "images/" + item.gsx$image.$t + ".png";
 
-        if(item.gsx$soldout.$t == "TRUE"){
+        if (item.gsx$soldout.$t == "TRUE") {
             aCopy.querySelector(".sold_out_text").style.display = "inline";
             aCopy.querySelector(".image").classList.add("sold_out");
-        }else{
+        } else {
             aCopy.querySelector(".image").classList.remove("sold_out");
         }
         document.querySelector(`#${item.gsx$category.$t}`).appendChild(aCopy);

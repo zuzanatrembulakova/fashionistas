@@ -6,6 +6,16 @@ if (buydata != null) {
 
 console.log(buyarr);
 
+const bmenu = document.querySelector(".burger_menu");
+bmenu.addEventListener("click", function(){
+    const navbar = document.getElementById("navbar");
+    if(navbar.style.display === "block"){
+        navbar.style.display = "none";
+    }else{
+        navbar.style.display = "block";
+    }
+})
+
 const link = "https://spreadsheets.google.com/feeds/list/1DVAg6s7LifjTSAXIaS7VHV0RBByKoWiT9NW8ay4at9Y/od6/public/values?alt=json";
 window.addEventListener("DOMContentLoaded", getData);
 
@@ -32,7 +42,9 @@ function showData(item) {
         var aCopy = template.cloneNode(true);
 
         aCopy.querySelector(".image").src = "images/" + item.gsx$image.$t + ".png";
-        aCopy.querySelector(".basket_item_title").textContent = item.gsx$image.$t
+        aCopy.querySelector(".basket_item_title").textContent = item.gsx$name.$t;
+
+        aCopy.querySelector(".basket_item_price").textContent = item.gsx$price.$t + ".00 €";
 
         divmain.appendChild(aCopy);
     }
