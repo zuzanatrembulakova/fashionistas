@@ -7,6 +7,7 @@ window.addEventListener("DOMContentLoaded", getData);
 
 const divmain = document.querySelector("main");
 
+
 if (document.querySelector(".burger_menu") != null) {
     const bmenu = document.querySelector(".burger_menu");
     bmenu.addEventListener("click", function () {
@@ -17,7 +18,10 @@ if (document.querySelector(".burger_menu") != null) {
             navbar.style.display = "block";
         }
     })
+} else {
+    navbar.style.display = "flex";
 };
+
 
 function getData() {
     fetch(link)
@@ -63,7 +67,8 @@ function showData(item) {
         aCopy.querySelector(".image").src = "images/" + item.gsx$image.$t + ".png";
 
         if (item.gsx$soldout.$t == "TRUE") {
-            aCopy.querySelector(".sold_out_text").style.display = "inline";
+            aCopy.querySelector(".buy_me_btn").textContent = "SOLD OUT";
+            /*aCopy.querySelector(".sold_out_text").style.display = "inline";*/
             aCopy.querySelector(".image").classList.add("sold_out");
         } else {
             aCopy.querySelector(".image").classList.remove("sold_out");
