@@ -271,11 +271,17 @@ h2{
     border-radius: 50%;
     width: 50px;
     height: 50px;
-    background-color: var(--white);
+    background-color: var(--coral);
+    font-size: 20px;
+    color: var(--white);
+    margin: 5px;
     display: none;
 
     position: absolute;
     text-align: center;
+    vertical-align: middle;
+    line-height: 50px;
+    font-weight: bold;
 }
 .read_more_btn{
     background-color: var(--transparent-black);
