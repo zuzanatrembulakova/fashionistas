@@ -110,17 +110,20 @@ nav a{
     display: flex;
     align-items: center;
 }
+
 .welcome_text {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
 }
+
+
 .welcome_text_heading{
     color: var(--white);
     font-size: 65px;
     border-bottom: 4px solid var(--white);
 }
-.welcome_text_subheading, .about_text_subheading{
+.welcome_text_subheading1, .welcome_text_subheading2, .welcome_text_subheading3, .about_text_subheading{
     color: var(--white);
     text-align: center;
     font-size: 40px;
@@ -129,6 +132,42 @@ nav a{
 .about_text_subheading{
     word-spacing: 10vw;
 }
+
+.welcome_text_subheading1, .welcome_text_subheading2, .welcome_text_subheading3{
+    display: block;
+    position: absolute;
+    width: 50%;
+    margin-top: 0;
+
+    animation-duration: 10s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: infinite;
+}
+.welcome_text_subheading1{
+	animation-name: anim-1;
+}
+.welcome_text_subheading2{
+	animation-name: anim-2;
+}
+.welcome_text_subheading3{
+	animation-name: anim-3;
+}
+@keyframes anim-1 {
+    0%, 8.3% { left: -70%; opacity: 0; }
+    8.3%, 25% { left: 25%; opacity: 1; }
+    33.33%, 100% { left: 50%; opacity: 0; }
+}
+@keyframes anim-2 {
+	0%, 33.33% { left: -100%; opacity: 0; }
+    41.63%, 58.29% { left: 25%; opacity: 1; }
+    66.66%, 100% { left: 50%; opacity: 0; }
+}
+@keyframes anim-3 {
+	0%, 66.66% { left: -100%; opacity: 0; }
+    74.96%, 91.62% { left: 25%; opacity: 1; }
+    100% { left: 50%; opacity: 0; }
+}
+
 .arrow_down_btn{
     border: none;
     background-color: transparent;
@@ -137,6 +176,7 @@ nav a{
     outline: none;
     display: block;
     margin: 0 auto;
+    margin-top: 15vh;
 }
 
 .home_page{
@@ -408,9 +448,9 @@ h2{
     .welcome_text_heading{
         font-size: 6vw;
     }
-    .welcome_text_subheading{
-        font-size: 5vw;
-    }
+    .welcome_text_subheading1, .welcome_text_subheading2, .welcome_text_subheading2{
+    font-size: 5vw;
+}
 
     .basket_layout{
         display: grid;
