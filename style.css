@@ -259,8 +259,9 @@ h2{
     grid-column: 1 / -1;
     width: 100%;
     padding: 10px;
-    background-color: var(--black);
-    color: var(--white);
+    border-bottom: 3px solid var(--black);
+    /*background-color: var(--black);*/
+    color: var(--black);
 }
 .image{
     max-width: 250px;

@@ -61,7 +61,10 @@ function showData(item) {
 
         var aCopy = template.cloneNode(true);
         aCopy.querySelector(".buy_me_btn").addEventListener("click", function () {
-            addToBasket(item.gsx$id.$t);
+            if (item.gsx$soldout.$t == "FALSE"){
+                addToBasket(item.gsx$id.$t);
+                /*document.querySelector(".shoppingcart_icon").src = "icons/shopping-cart-black-sm.png";*/
+            }
         });
 
         aCopy.querySelector(".image").src = "images/" + item.gsx$image.$t + ".png";
