@@ -61,7 +61,7 @@ function showData(item) {
 
         var aCopy = template.cloneNode(true);
         aCopy.querySelector(".buy_me_btn").addEventListener("click", function () {
-            if (item.gsx$soldout.$t == "FALSE"){
+            if (item.gsx$soldout.$t == "FALSE") {
                 addToBasket(item.gsx$id.$t);
                 /*document.querySelector(".shoppingcart_icon").src = "icons/shopping-cart-black-sm.png";*/
             }
@@ -75,6 +75,13 @@ function showData(item) {
             aCopy.querySelector(".image").classList.add("sold_out");
         } else {
             aCopy.querySelector(".image").classList.remove("sold_out");
+        }
+
+        if (item.gsx$discount.$t) {
+            aCopy.querySelector(".discount").style.display = "inline";
+            aCopy.querySelector(".discount").textContent = "-" + item.gsx$discount.$t + "%";
+        } else {
+            aCopy.querySelector(".discount").style.display = "none";
         }
         document.querySelector(`#${item.gsx$category.$t}`).appendChild(aCopy);
     }

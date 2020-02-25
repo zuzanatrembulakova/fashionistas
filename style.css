@@ -267,6 +267,16 @@ h2{
     max-width: 250px;
     max-height: 300px;
 }
+.discount{
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background-color: var(--white);
+    display: none;
+
+    position: absolute;
+    text-align: center;
+}
 .read_more_btn{
     background-color: var(--transparent-black);
     outline: none;
