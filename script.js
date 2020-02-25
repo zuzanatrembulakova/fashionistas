@@ -1,6 +1,6 @@
 if (document.getElementById("script_args") != null) {
-    var type = document.getElementById("script_args").getAttribute("arg1");
-}
+    var type = document.getElementById("script_args").getAttribute("arg1")
+};
 
 const link = "https://spreadsheets.google.com/feeds/list/1DVAg6s7LifjTSAXIaS7VHV0RBByKoWiT9NW8ay4at9Y/od6/public/values?alt=json";
 window.addEventListener("DOMContentLoaded", getData);
