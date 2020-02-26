@@ -90,9 +90,7 @@ function showData(item) {
         }
 
         aCopy.querySelector(".read_more_btn").addEventListener("click", () => {
-                fetch(`https://spreadsheets.google.com/feeds/list/1DVAg6s7LifjTSAXIaS7VHV0RBByKoWiT9NW8ay4at9Y/od6/public/values?alt=json`)
-                    .then(res => res.json())
-                    .then(showDetails);
+                showDetails(item)
         });
                 document.querySelector(`#${item.gsx$category.$t}`).appendChild(aCopy);
             }
@@ -135,9 +133,9 @@ function showData(item) {
             document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
         }
 
-        function showDetails(data) {
-            modal.querySelector(".modal-name").textContent = data.name;
-            modal.querySelector(".modal-description").textContent = data.longdescription;
+        function showDetails(item) {
+            modal.querySelector(".modal-name").textContent = item.gsx$name.$t;
+            modal.querySelector(".modal-description").textContent = item.longdescription;
             //...
             modal.classList.remove("hide");
         }
