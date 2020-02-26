@@ -82,10 +82,12 @@ function showData(item) {
         aCopy.querySelector(".image").src = "images/" + item.gsx$image.$t + ".png";
 
         if (item.gsx$soldout.$t == "TRUE") {
-            aCopy.querySelector(".buy_me_btn").textContent = "SOLD OUT";
+            var buy_btn = aCopy.querySelector(".buy_me_btn");
+
+            buy_btn.textContent = "SOLD OUT";
+            buy_btn.classList.remove("buy_me_btn");
+            buy_btn.classList.add("sold_out_text");
             aCopy.querySelector(".image").classList.add("sold_out");
-            aCopy.querySelector(".buy_me_btn").classList.remove("buy_me_btn");
-            aCopy.querySelector(".buy_me_btn").classList.add("sold_out_text");
 
         } else {
             aCopy.querySelector(".image").classList.remove("sold_out");

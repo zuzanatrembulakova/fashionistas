@@ -350,11 +350,15 @@ h2{
 }
 
 .sold_out_text{
+    letter-spacing: 3px;
+    font-size: 20px;
     text-align: center;
     font-weight: 900;
+    background-color: transparent;
+    outline: none;
+    border: none;
     margin: 0;
-    color: var(--coral);
-    border-bottom: 2px solid var(--coral);
+    color: var(--black);
 }
 .sold_out{
     filter: grayscale(100%);
