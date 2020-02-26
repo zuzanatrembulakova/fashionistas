@@ -117,7 +117,6 @@ nav a{
     text-align: center;
 }
 
-
 .welcome_text_heading{
     color: var(--white);
     font-size: 65px;
@@ -231,21 +230,6 @@ main a{
     padding: 20px;
 }
 
-.sold_out_text{
-    text-align: center;
-    font-weight: 900;
-    font-size: 40px;
-    display: none;
-    margin: 0;
-    color: var(--coral);
-    border-bottom: 2px solid var(--coral);
-    /*text-shadow: 2px 2px 2px var(--white);*/
-    /*transform: rotate(-20deg);*/
-}
-.sold_out{
-    filter: grayscale(100%);
-}
-
 footer{
     margin-top: 10px;
     display: flex;
@@ -298,7 +282,6 @@ h2{
     text-transform: uppercase;
     grid-column: 1 / -1;
     width: 100%;
-    padding: 10px;
     border-bottom: 3px solid var(--black);
     /*background-color: var(--black);*/
     color: var(--black);
@@ -364,6 +347,17 @@ h2{
 .buy_me_btn:active{
     color: var(--black);
     border: 2px solid var(--black);
+}
+
+.sold_out_text{
+    text-align: center;
+    font-weight: 900;
+    margin: 0;
+    color: var(--coral);
+    border-bottom: 2px solid var(--coral);
+}
+.sold_out{
+    filter: grayscale(100%);
 }
 
 /*--------------------BASKET--------------------*/

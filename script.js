@@ -1,21 +1,31 @@
+//get page type
+//page type is retrieved from an atribute "arg1" which belongs to the
+//element - script_args
 if (document.getElementById("script_args") != null) {
     var type = document.getElementById("script_args").getAttribute("arg1")
 };
 
-const link = "https://spreadsheets.google.com/feeds/list/1DVAg6s7LifjTSAXIaS7VHV0RBByKoWiT9NW8ay4at9Y/od6/public/values?alt=json";
+//path to the database
+const database_link = "https://spreadsheets.google.com/feeds/list/1DVAg6s7LifjTSAXIaS7VHV0RBByKoWiT9NW8ay4at9Y/od6/public/values?alt=json";
 window.addEventListener("DOMContentLoaded", getData);
 
 const divmain = document.querySelector("main");
 
+//if basket contains items display full basket icon
+var buydata = localStorage.getItem("fashion_basket");
+if (buydata != null) {
+        showFullBasket();
+}
 
+//set up burger menu handler
 if (document.querySelector(".burger_menu") != null) {
     const bmenu = document.querySelector(".burger_menu");
     bmenu.addEventListener("click", function () {
         const navbar = document.getElementById("navbar");
-        if (navbar.style.display === "block") {
+        if (navbar.style.display === "flex") {
             navbar.style.display = "none";
         } else {
-            navbar.style.display = "block";
+            navbar.style.display = "flex";
         }
     })
 } else {
@@ -24,7 +34,7 @@ if (document.querySelector(".burger_menu") != null) {
 
 
 function getData() {
-    fetch(link)
+    fetch(database_link)
         .then(res => res.json())
         .then(handleData)
 }
@@ -34,13 +44,14 @@ function handleData(data) {
     console.log(myData);
 
     //create categories
-    var categories = new Set();
+    var categories = new Set(); //create container for categories
     myData.forEach(function (item) {
         if (item.gsx$season.$t == type) {
             categories.add(item.gsx$category.$t);
         }
     })
 
+    //create sections based on categories
     categories.forEach(function (oneCategory) {
         const section = document.createElement("section");
         section.id = oneCategory;
@@ -51,6 +62,7 @@ function handleData(data) {
         document.querySelector("main").appendChild(section);
     })
 
+    //for each item shows their content
     myData.forEach(showData);
 }
 
@@ -63,7 +75,7 @@ function showData(item) {
         aCopy.querySelector(".buy_me_btn").addEventListener("click", function () {
             if (item.gsx$soldout.$t == "FALSE") {
                 addToBasket(item.gsx$id.$t);
-                /*document.querySelector(".shoppingcart_icon").src = "icons/shopping-cart-black-sm.png";*/
+                showFullBasket();
             }
         });
 
@@ -71,8 +83,10 @@ function showData(item) {
 
         if (item.gsx$soldout.$t == "TRUE") {
             aCopy.querySelector(".buy_me_btn").textContent = "SOLD OUT";
-            /*aCopy.querySelector(".sold_out_text").style.display = "inline";*/
             aCopy.querySelector(".image").classList.add("sold_out");
+            aCopy.querySelector(".buy_me_btn").classList.remove("buy_me_btn");
+            aCopy.querySelector(".buy_me_btn").classList.add("sold_out_text");
+
         } else {
             aCopy.querySelector(".image").classList.remove("sold_out");
         }
@@ -88,6 +102,8 @@ function showData(item) {
 
 }
 
+//add item based on id to the basket
+//content of basket is stored to localStorage as an arry of ids
 function addToBasket(id) {
     var buydata = localStorage.getItem("fashion_basket");
     var buyarr = [];
@@ -98,17 +114,20 @@ function addToBasket(id) {
     buyarr.push(id);
 
     localStorage.setItem("fashion_basket", JSON.stringify(buyarr));
-
 }
 
+//change basket icon from empty to full
+function showFullBasket(){
+    document.querySelector(".shoppingcart_icon").src = "icons/shopping-cart-black-sm.png";
+}
+
+/*-------GO TO TOP BTN------------------------------*/
 
 window.onscroll = function () {
     scrollFunction()
 };
 
-
-/*---GO TO TOP BTN-------------------------------------*/
-
+//enable/disable scroll button based on scroller position
 function scrollFunction() {
     var topBtn = document.getElementById("topBtn");
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
