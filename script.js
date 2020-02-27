@@ -7,6 +7,12 @@ if (document.getElementById("script_args") != null) {
 
 //path to the database
 const database_link = "https://spreadsheets.google.com/feeds/list/1DVAg6s7LifjTSAXIaS7VHV0RBByKoWiT9NW8ay4at9Y/od6/public/values?alt=json";
+
+const modal = document.querySelector(".modal-background");
+modal.addEventListener("click", () => {
+    modal.classList.add("hide");
+});
+
 window.addEventListener("DOMContentLoaded", getData);
 
 const divmain = document.querySelector("main");
@@ -14,7 +20,7 @@ const divmain = document.querySelector("main");
 //if basket contains items display full basket icon
 var buydata = localStorage.getItem("fashion_basket");
 if (buydata != null) {
-        showFullBasket();
+    showFullBasket();
 }
 
 //set up burger menu handler
@@ -99,11 +105,14 @@ function showData(item) {
         } else {
             aCopy.querySelector(".discount").style.display = "none";
         }
+
+        aCopy.querySelector(".read_more_btn").addEventListener("click", () => {
+            showDetails(item)
+        });
         document.querySelector(`#${item.gsx$category.$t}`).appendChild(aCopy);
     }
 
 }
-
 //add item based on id to the basket
 //content of basket is stored to localStorage as an arry of ids
 function addToBasket(id) {
@@ -113,21 +122,21 @@ function addToBasket(id) {
         buyarr = JSON.parse(buydata);
     }
 
-    buyarr.push(id);
+
 
     localStorage.setItem("fashion_basket", JSON.stringify(buyarr));
 }
 
 //change basket icon from empty to full
-function showFullBasket(){
-    document.querySelector(".shoppingcart_icon").src = "icons/shopping-cart-black-sm.png";
+function showFullBasket() {
+    if (document.querySelector(".shoppingcart_icon")) {
+        document.querySelector(".shoppingcart_icon").src = "icons/shopping-cart-black-sm.png";
+    }
 }
 
 /*-------GO TO TOP BTN------------------------------*/
 
-window.onscroll = function () {
-    scrollFunction()
-};
+
 
 //enable/disable scroll button based on scroller position
 function scrollFunction() {
@@ -139,8 +148,27 @@ function scrollFunction() {
     }
 }
 
+window.onscroll = function () {
+    scrollFunction()
+};
+
+
+/*---GO TO TOP BTN-------------------------------------*/
+
+
+
+
 // When the user clicks on the button, scroll to the top of the document
 function topFunction() { // eslint-disable-line no-unused-vars
     document.body.scrollTop = 0; // For Safari
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+
+function showDetails(item) {
+    modal.querySelector(".modal-name").textContent = item.gsx$name.$t;
+    modal.querySelector(".modal-description").textContent = item.gsx$description.$t;
+
+
+    //...
+    modal.classList.remove("hide");
 }
