@@ -446,7 +446,7 @@ h2{
     .welcome_text_heading{
         font-size: 6vw;
     }
-    .welcome_text_subheading1, .welcome_text_subheading2, .welcome_text_subheading2{
+    .welcome_text_subheading1, .welcome_text_subheading2, .welcome_text_subheading3{
     font-size: 5vw;
 }
 
@@ -465,5 +465,4 @@ h2{
     .basket_item_price{
         grid-row: 3;
     }
-
 }
