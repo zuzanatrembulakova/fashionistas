@@ -58,6 +58,10 @@ function handleData(data) {
 
     //create sections based on categories
     categories.forEach(function (oneCategory) {
+         const a = document.createElement("a");
+        a.setAttribute("href", `#${oneCategory}`);
+        a.textContent = oneCategory;
+        document.querySelector("aside>nav").appendChild(a);
         const section = document.createElement("section");
         section.id = oneCategory;
         const h2 = document.createElement("h2");
