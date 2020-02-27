@@ -35,7 +35,9 @@ if (document.querySelector(".burger_menu") != null) {
         } else {
             navbar.style.display = "flex";
         }
-    });
+    })
+} else {
+    navbar.style.display = "flex";
 };
 
 function getData() {
@@ -58,7 +60,7 @@ function handleData(data) {
 
     //create sections based on categories
     categories.forEach(function (oneCategory) {
-         const a = document.createElement("a");
+        const a = document.createElement("a");
         a.setAttribute("href", `#${oneCategory}`);
         a.textContent = oneCategory;
         document.querySelector("aside>nav").appendChild(a);

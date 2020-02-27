@@ -185,10 +185,6 @@ nav a{
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     padding: 30px;
 }
-main a{
-    margin-left: auto;
-    margin-right: auto;
-}
 .season_box_spring, .season_box_summer, .season_box_autumn, .season_box_winter{
     width: 340px;
     height: 537px;
@@ -228,6 +224,24 @@ main a{
     text-align: center;
     font-size: 25px;
     padding: 20px;
+}
+
+main a{
+    color: var(--black);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-left: 0;
+
+}
+main a:hover{
+    color: var(--coral);
+
+}
+main nav{
+    margin-top: 60px;
+    border: 1px solid var(--black);
 }
 
 footer{
