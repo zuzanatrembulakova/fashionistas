@@ -9,10 +9,10 @@ console.log(buyarr);
 const bmenu = document.querySelector(".burger_menu");
 bmenu.addEventListener("click", function(){
     const navbar = document.getElementById("navbar");
-    if(navbar.style.display === "block"){
+    if(navbar.style.display === "flex"){
         navbar.style.display = "none";
     }else{
-        navbar.style.display = "block";
+        navbar.style.display = "flex";
     }
 })
 
@@ -36,7 +36,6 @@ function handleData(data) {
 function showData(item) {
 
     if (buyarr.includes(item.gsx$id.$t)) {
-        console.log("zobrazujem: " + item.gsx$id.$t);
         const template = document.querySelector("template").content;
 
         var aCopy = template.cloneNode(true);

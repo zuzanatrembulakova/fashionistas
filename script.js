@@ -9,9 +9,11 @@ if (document.getElementById("script_args") != null) {
 const database_link = "https://spreadsheets.google.com/feeds/list/1DVAg6s7LifjTSAXIaS7VHV0RBByKoWiT9NW8ay4at9Y/od6/public/values?alt=json";
 
 const modal = document.querySelector(".modal-background");
-modal.addEventListener("click", () => {
-    modal.classList.add("hide");
-});
+if (document.querySelector(".modal-background") != null) {
+    modal.addEventListener("click", () => {
+        modal.classList.add("hide");
+    })
+};
 
 window.addEventListener("DOMContentLoaded", getData);
 
@@ -24,20 +26,17 @@ if (buydata != null) {
 }
 
 //set up burger menu handler
+const navbar = document.getElementById("navbar");
 if (document.querySelector(".burger_menu") != null) {
     const bmenu = document.querySelector(".burger_menu");
     bmenu.addEventListener("click", function () {
-        const navbar = document.getElementById("navbar");
         if (navbar.style.display === "flex") {
             navbar.style.display = "none";
         } else {
             navbar.style.display = "flex";
         }
-    })
-} else {
-    navbar.style.display = "flex";
+    });
 };
-
 
 function getData() {
     fetch(database_link)
@@ -122,6 +121,7 @@ function addToBasket(id) {
         buyarr = JSON.parse(buydata);
     }
 
+    buyarr.push(id);
     localStorage.setItem("fashion_basket", JSON.stringify(buyarr));
 }
 
@@ -157,19 +157,24 @@ function topFunction() { // eslint-disable-line no-unused-vars
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
 
+
 function showDetails(item) {
     modal.querySelector(".modal-name").textContent = item.gsx$name.$t;
     modal.querySelector(".modal-description").textContent = item.gsx$description.$t;
     modal.querySelector(".modal-image").src = "images/" + item.gsx$image.$t + ".png";
     modal.querySelector(".modal-price").textContent = item.gsx$price.$t + ".00 €";
 
-    if(item.gsx$discount.$t){
+    if (item.gsx$discount.$t) {
         modal.querySelector(".modal-discount").style.display = "inline";
         modal.querySelector(".modal-discount").textContent = "-" + item.gsx$discount.$t + "%";
+    } else {
+        modal.querySelector(".modal-discount").style.display = "none";
     }
 
-    if(item.gsx$soldout.$t == "TRUE"){
+    if (item.gsx$soldout.$t == "TRUE") {
         modal.querySelector(".modal-soldout").style.display = "inline";
+    } else {
+        modal.querySelector(".modal-soldout").style.display = "none";
     }
 
     modal.classList.remove("hide");

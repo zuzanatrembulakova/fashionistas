@@ -358,7 +358,7 @@ h2{
     outline: none;
     border: none;
     margin: 0;
-    color: var(--black);
+    color: grey;
 }
 .sold_out{
     filter: grayscale(100%);
@@ -506,8 +506,8 @@ h2{
     }
     .shoppingcart_icon{
         position: absolute;
-        left: 10%;
-        top: 1%;
+        left: 83%;
+        top: 38%;
 
     }
 
@@ -537,48 +537,27 @@ h2{
     .modal-layout{
     display: grid;
     grid-template-columns: 1fr;
-    column-gap: 2vw;
-    }
-    .modal-name{
-        text-align: center;
+
     }
     .modal-description{
         grid-column: 1;
         grid-row: 2;
-        text-align: justify;
-        font-size: 18px;
     }
     .modal-image{
-        max-width: 250px;
-        max-height: 300px;
         grid-column: 1;
         grid-row: 1;
-        justify-self:center;
     }
     .modal-discount{
         grid-column: 1;
-        grid-row: 2;
-        text-align: center;
-        font-size: 30px;
-        color: var(--coral);
-        margin-top: 5vh;
-        display: none;
+        grid-row: 3;
     }
     .modal-soldout{
         grid-column: 1;
-        grid-row: 3;
-        display: none;
+        grid-row: 4;
     }
     .modal-price{
         grid-column: 1;
-        grid-row: 4;
-        font-size: 30px;
-        text-align: center;
-        align-self: end;
-
-        background-color: var(--white);
-        color: var(--coral);
-        border: 2px solid var(--coral);
+        grid-row: 5;
 
     }
 }
