@@ -135,7 +135,9 @@ function showData(item) {
 
         function showDetails(item) {
             modal.querySelector(".modal-name").textContent = item.gsx$name.$t;
-            modal.querySelector(".modal-description").textContent = item.longdescription;
+            modal.querySelector(".modal-description").textContent = item.gsx$description.$t;
+
+
             //...
             modal.classList.remove("hide");
         }
