@@ -16,13 +16,13 @@ bmenu.addEventListener("click", function(){
     }
 })
 
-const link = "https://spreadsheets.google.com/feeds/list/1DVAg6s7LifjTSAXIaS7VHV0RBByKoWiT9NW8ay4at9Y/od6/public/values?alt=json";
+const database_link = "https://spreadsheets.google.com/feeds/list/1DVAg6s7LifjTSAXIaS7VHV0RBByKoWiT9NW8ay4at9Y/od6/public/values?alt=json";
 window.addEventListener("DOMContentLoaded", getData);
 
 const divmain = document.querySelector("main");
 
 function getData() {
-    fetch(link)
+    fetch(database_link)
         .then(res => res.json())
         .then(handleData)
 }

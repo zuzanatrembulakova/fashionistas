@@ -122,8 +122,6 @@ function addToBasket(id) {
         buyarr = JSON.parse(buydata);
     }
 
-
-
     localStorage.setItem("fashion_basket", JSON.stringify(buyarr));
 }
 
@@ -135,8 +133,6 @@ function showFullBasket() {
 }
 
 /*-------GO TO TOP BTN------------------------------*/
-
-
 
 //enable/disable scroll button based on scroller position
 function scrollFunction() {
@@ -155,9 +151,6 @@ window.onscroll = function () {
 
 /*---GO TO TOP BTN-------------------------------------*/
 
-
-
-
 // When the user clicks on the button, scroll to the top of the document
 function topFunction() { // eslint-disable-line no-unused-vars
     document.body.scrollTop = 0; // For Safari
@@ -167,8 +160,17 @@ function topFunction() { // eslint-disable-line no-unused-vars
 function showDetails(item) {
     modal.querySelector(".modal-name").textContent = item.gsx$name.$t;
     modal.querySelector(".modal-description").textContent = item.gsx$description.$t;
+    modal.querySelector(".modal-image").src = "images/" + item.gsx$image.$t + ".png";
+    modal.querySelector(".modal-price").textContent = item.gsx$price.$t + ".00 €";
 
+    if(item.gsx$discount.$t){
+        modal.querySelector(".modal-discount").style.display = "inline";
+        modal.querySelector(".modal-discount").textContent = "-" + item.gsx$discount.$t + "%";
+    }
 
-    //...
+    if(item.gsx$soldout.$t == "TRUE"){
+        modal.querySelector(".modal-soldout").style.display = "inline";
+    }
+
     modal.classList.remove("hide");
 }
