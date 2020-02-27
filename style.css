@@ -185,6 +185,10 @@ nav a{
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     padding: 30px;
 }
+.main_submenu{
+    margin-left: auto;
+    margin-right: auto;
+}
 .season_box_spring, .season_box_summer, .season_box_autumn, .season_box_winter{
     width: 340px;
     height: 537px;
@@ -215,6 +219,8 @@ nav a{
     background-color: var(--transparent-black);
     cursor: pointer;
     transition: 1s;
+    margin-left: auto;
+    margin-right: auto;
 }
 .season_text:hover{
     background-color: var(--black);
